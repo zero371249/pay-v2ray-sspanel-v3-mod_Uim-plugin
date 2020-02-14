@@ -1,0 +1,66 @@
+{
+  "reverse":{
+    "portals":[
+      {
+        "tag":"portal",
+        "domain":"ricobb.com"
+      }
+    ]
+  },
+  "inbounds":[
+    {
+      "tag":"tunnel",
+      "port":11872,
+      "protocol":"dokodemo-door",
+      "settings":{
+        "network": "tcp,udp"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "tlsSettings": {},
+        "tcpSettings": {},
+        "kcpSettings": {},
+        "httpSettings": {},
+        "wsSettings": {
+          "path": "/DiXPCkta/",
+          "headers": {
+            "Host": ""
+          }
+        },
+        "quicSettings": {}
+      }
+    },
+    {
+      "tag":"tunnel",
+      "port":11873,
+      "protocol":"dokodemo-door",
+      "settings":{
+        "address": "c",
+        "port":"c",
+        "network": "tcp,udp"
+      }
+    }
+  ],
+  "routing":{
+    "rules":[
+      {
+        "type":"field",
+        "inboundTag":[
+          "inbound"
+        ],
+        "outboundTag":"portal"
+      },
+      {
+        "type":"field",
+        "inboundTag":[
+          "tunnel"
+        ],
+        "domain":[
+          "full:ricobb.com"
+        ],
+        "outboundTag":"portal"
+      }
+    ]
+  }
+}

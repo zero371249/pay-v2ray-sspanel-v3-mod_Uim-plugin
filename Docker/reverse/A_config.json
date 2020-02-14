@@ -1,0 +1,62 @@
+{
+  "reverse":{
+    "bridges":[
+      {
+        "tag":"bridge",
+        "domain":"ricobb.com"
+      }
+    ]
+  },
+  "outbounds":[
+    {
+      "tag":"tunnel",
+      "protocol":"freedom",
+      "settings":{
+        "domainStrategy": "AsIs",
+        "redirect": "B地址:11872",
+        "userLevel": 0
+      },
+      "streamSettings": {
+      "network": "ws",
+      "security": "none",
+      "tlsSettings": {},
+      "tcpSettings": {},
+      "kcpSettings": {},
+      "httpSettings": {},
+      "wsSettings": {
+        "path": "/DiXPCkta/",
+        "headers": {
+          "Host": ""
+        }
+      }
+    }
+    },
+    {
+      "protocol":"freedom",
+      "settings":{
+      },
+      "tag":"out"
+    }
+  ],
+  "routing":{
+    "rules":[
+      {
+        "type":"field",
+        "inboundTag":[
+          "bridge"
+        ],
+        "domain":[
+          "full:ricobb.com"
+        ],
+        "outboundTag":"tunnel"
+      },
+      {
+        "type":"field",
+        "inboundTag":[
+          "bridge"
+        ],
+        "outboundTag":"out"
+      }
+    ]
+  }
+}
